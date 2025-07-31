@@ -1,45 +1,78 @@
 import java.util.Scanner;
 
 public class Main {
-    private static Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args) {
-        System.out.println("Choose Vehicle Type:");
-        System.out.println("1. Car");
-        System.out.println("2. Truck");
-        System.out.print("Enter choice: ");
-        int vehicleChoice = Integer.parseInt(scanner.nextLine());
+        Scanner scanner = new Scanner(System.in);
+        Robot robot = null;
 
-        System.out.println("\nChoose Engine Type:");
-        System.out.println("1. Petrol Engine");
-        System.out.println("2. Diesel Engine");
-        System.out.println("3. Electric Motor");
-        System.out.print("Enter choice: ");
-        int engineChoice = Integer.parseInt(scanner.nextLine());
+        while (true) {
+            System.out.println("\nSelect Robot Model:");
+            System.out.println("1. Kiva Robot");
+            System.out.println("2. Fetch Robot");
+            System.out.println("3. ABB Robot");
+            System.out.println("4. Exit Program");
+            System.out.print("Enter choice: ");
+            String robotChoice = scanner.nextLine();
 
-        Engine engine = null;
-        switch (engineChoice) {
-            case 1: engine = new PetrolEngine(); break;
-            case 2: engine = new DieselEngine(); break;
-            case 3: engine = new ElectricMotor(); break;
-            default:
-                System.out.println("Invalid engine choice. Defaulting to Petrol Engine.");
-                engine = new PetrolEngine();
+            TaskExecutor executor;
+            switch (robotChoice) {
+                case "1":
+                    robot = new KivaRobot();
+                    executor = new TaskExecutor(robot);
+                    break;
+                case "2":
+                    robot = new FetchRobot();
+                    executor = new TaskExecutor(robot);
+                    break;
+                case "3":
+                    robot = new ABBRobot();
+                    executor = new TaskExecutor(robot);
+                    break;
+                case "4":
+                    System.out.println("Exiting program...");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("Invalid robot choice.");
+                    continue;
+            }
+
+            // Inner loop to handle robot tasks
+            while (true) {
+                System.out.println("\nSelect Task to Execute for " + robot.getRobotName() + ":");
+                System.out.println("1. Pick");
+                System.out.println("2. Place");
+                System.out.println("3. Scan");
+                System.out.println("4. Charge");
+                System.out.println("5. Change Robot / Main Menu");
+                System.out.print("Enter task: ");
+                String taskChoice = scanner.nextLine();
+
+                switch (taskChoice) {
+                    case "1":
+                        executor.performPick();
+                        break;
+                    case "2":
+                        executor.performPlace();
+                        break;
+                    case "3":
+                        executor.performScan();
+                        break;
+                    case "4":
+                        executor.performCharge();
+                        break;
+                    case "5":
+                        System.out.println("Returning to main menu...");
+                        break;
+                    default:
+                        System.out.println("Invalid task choice.");
+                        continue;
+                }
+
+                if (taskChoice.equals("5")) {
+                    break;
+                }
+            }
         }
-
-        Vehicle vehicle;
-        switch (vehicleChoice) {
-            case 1: vehicle = new Car(engine); break;
-            case 2: vehicle = new Truck(engine); break;
-            default:
-                System.out.println("Invalid vehicle choice. Defaulting to Car.");
-                vehicle = new Car(engine);
-        }
-
-        System.out.println("\nStarting vehicle...");
-        vehicle.startEngine();
-        vehicle.drive();
-        vehicle.stopEngine();
-        System.out.println("Vehicle stopped.");
     }
 }

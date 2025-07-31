@@ -1,32 +1,69 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
+    private static Map<Integer, SmartDevice> devices = new HashMap<>();
+    private static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        devices.put(1, new SmartPlugAdapter());
+        devices.put(2, new SmartBulbAdapter());
 
-        System.out.println("=== Charger Adapter Demo ===");
-        System.out.println("1. Use MicroUSB charger directly (Expected to fail)");
-        System.out.println("2. Use MicroUSB charger with Type-C Adapter (Works)");
-        System.out.print("Enter choice (1 or 2): ");
+        while (true) {
+            System.out.println("\nSmart Home Device Controller");
+            System.out.println("1. Turn ON Device");
+            System.out.println("2. Turn OFF Device");
+            System.out.println("3. Exit");
+            System.out.println("4. Check Device Status");
+            System.out.print("Choose an option: ");
+            String option = scanner.nextLine();
 
-        int choice = Integer.parseInt(scanner.nextLine());
+            switch (option) {
+                case "1":
+                    handleDeviceOperation(true);
+                    break;
+                case "2":
+                    handleDeviceOperation(false);
+                    break;
+                case "3":
+                    System.out.println("Exiting");
+                    return;
+                case "4":
+                    showDeviceStatus();
+                    break;
+                default:
+                    System.out.println("Invalid option. Try again.");
+            }
+        }
+    }
 
-        MicroUSBCharger microUSB = new MicroUSBCharger();
-        Phone phone = new Phone();
-        WrongPhone legacyPhone = new WrongPhone();
-
-        switch (choice) {
-            case 1:
-                legacyPhone.chargeDirectly(microUSB);
-                break;
-            case 2:
-                USBTypeC adapter = new MicroUSBtoTypeCAdapter(microUSB);
-                phone.charge(adapter);
-                break;
-            default:
-                System.out.println("Invalid choice.");
+    private static void handleDeviceOperation(boolean turnOn) {
+        System.out.println("\nAvailable Devices:");
+        for (Map.Entry<Integer, SmartDevice> entry : devices.entrySet()) {
+            System.out.println(entry.getKey() + ". " + entry.getValue().getDeviceName());
         }
 
-        scanner.close();
+        System.out.print("Select device number: ");
+        try {
+            int choice = Integer.parseInt(scanner.nextLine());
+            SmartDevice device = devices.get(choice);
+            if (device != null) {
+                if (turnOn) {
+                    device.turnOn();
+                } else {
+                    device.turnOff();
+                }
+            } else {
+                System.out.println("Invalid device number.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Please enter a valid number.");
+        }
+    }
+
+    private static void showDeviceStatus() {
+        System.out.println("\nDevice Status:");
+        for (SmartDevice device : devices.values()) {
+            System.out.println(device.getDeviceName() + " is currently " + (device.isOn() ? "ON" : "OFF"));
+        }
     }
 }
