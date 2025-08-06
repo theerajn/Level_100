@@ -13,8 +13,7 @@ public class Car implements CarPrototype {
         this.gps = gps;
     }
 
-    @Override
-    public CarPrototype cloneCar() {
+    public Car cloneCar() {
         try {
             return (Car) super.clone();
         } catch (CloneNotSupportedException e) {

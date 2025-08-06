@@ -26,7 +26,7 @@ public class Main {
             }
         }
 
-        Car clonedCar = (Car) baseCar.cloneCar();
+        Car clonedCar = baseCar.cloneCar();
 
         System.out.print("Enter new color for the cloned car (current: " + clonedCar.getColor() + "): ");
         String newColor = scanner.nextLine().trim();

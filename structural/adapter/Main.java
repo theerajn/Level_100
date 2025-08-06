@@ -38,9 +38,9 @@ public class Main {
 
     private static void handleDeviceOperation(boolean turnOn) {
         System.out.println("\nAvailable Devices:");
-        for (Map.Entry<Integer, SmartDevice> entry : devices.entrySet()) {
-            System.out.println(entry.getKey() + ". " + entry.getValue().getDeviceName());
-        }
+        devices.forEach((key, device) -> {
+        System.out.println(key + ". " + device.getDeviceName());
+    });
 
         System.out.print("Select device number: ");
         try {
