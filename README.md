@@ -68,5 +68,64 @@ This document lists important **Design Patterns**, grouped into **Creational, St
 ### 🔹 Bridge
 - **Definition**: Separates abstraction from implementation so they can vary independently.  
 - **Example**:Robot Management
-- **Advantage**: Decouples interface from implementation; without it, changes in one force changes in the other.  
+- **Advantage**: Decouples interface from implementation; without it, changes in one force changes in the other.
+
+  ---
+
+##  Behavioural Design Patterns
+
+### 🔹 Strategy
+- **Definition**: Defines a family of algorithms and makes them interchangeable.  
+- **Example**: Smart Irrigation System  
+- **Advantage**: Eliminates hardcoded algorithms; without it, adding new behavior requires changing existing code.  
+
+### 🔹 Observer
+- **Definition**: One-to-many dependency where changes in one object notify others.  
+- **Example**: Live Sports Score Update System
+- **Advantage**: Decouples subject from observers; without it, subjects must track and call each dependent manually.  
+
+### 🔹 State
+- **Definition**: Allows an object to change behavior when its internal state changes.  
+- **Example**: ATM Machine Simulation.
+- **Advantage**: Avoids large conditional logic; without it, code becomes cluttered with if-else statements.  
+
+### 🔹 Command
+- **Definition**: Encapsulates a request as an object.  
+- **Example**: Job Scheduler
+- **Advantage**: Encapsulates each request as a command object, making the system flexible and extensible.
+
+### 🔹 Chain of Responsibility
+- **Definition**: Passes a request along a chain until it’s handled.  
+- **Example**: Spam Email Filtering System
+- **Advantage**: Decouples sender and receiver; without it, one handler must know all possible request types.  
+
+### 🔹 Iterator
+- **Definition**: Provides a way to access elements of a collection without exposing its representation.  
+- **Example**: Stream Change Simulation  
+- **Advantage**: Provides a uniform way to traverse collections without exposing their internal representation.
+
+### 🔹 Mediator
+- **Definition**: Defines an object that coordinates interaction between multiple objects.  
+- **Example**:Loan approval workflow
+- **Advantage**: All departments interact via the mediator instead of tightly coupling with each other.
+
+### 🔹 Memento
+- **Definition**: Captures and restores an object’s state without exposing its internals.  
+- **Example**: Database Rollback System
+- **Advantage**: Restores previous state safely; without it, rollback would require exposing object internals.  
+
+### 🔹 Template Method
+- **Definition**: Defines a skeleton of an algorithm, letting subclasses redefine steps.  
+- **Example**: Resume Screening System
+- **Advantage**: Promotes code reuse; without it, algorithms must be duplicated with small variations.  
+
+### 🔹 Visitor
+- **Definition**: Separates algorithms from the objects they operate on.  
+- **Example**: Healthcare Patient Report System
+- **Advantage**: Adds new operations without modifying existing classes; without it, new logic requires editing every class.  
+
+### 🔹 Interpreter
+- **Definition**: Defines a grammar for a language and provides an interpreter to evaluate sentences in that language.
+- **Example**: Workflow automation 
+- **Advantage**: Allows flexible execution of domain-specific rules; without it, logic would be hardcoded and difficult to change for new rules. 
 
