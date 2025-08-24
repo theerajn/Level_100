@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("=== IoT Device Management System ===");
 
+        // Menu-driven program for managing sensors and groups
         while (true) {
             System.out.println("\n========== MENU ==========");
             System.out.println("1. Add Sensor");
@@ -19,10 +20,10 @@ public class Main {
             String choice = scanner.nextLine().trim();
 
             switch (choice) {
-                case "1" -> addSensor();
-                case "2" -> createGroup();
-                case "3" -> addSensorToGroup();
-                case "4" -> operateGroup();
+                case "1" -> addSensor();           // Create a new sensor
+                case "2" -> createGroup();         // Create a new sensor group
+                case "3" -> addSensorToGroup();    // Add sensor or subgroup to group
+                case "4" -> operateGroup();        // Perform operations on group
                 case "0" -> {
                     System.out.println("Exiting...");
                     return;
@@ -32,6 +33,7 @@ public class Main {
         }
     }
 
+    // Add a new sensor
     private static void addSensor() {
         System.out.print("Enter Sensor ID: ");
         String id = scanner.nextLine().trim();
@@ -52,6 +54,7 @@ public class Main {
         }
     }
 
+    // Create a new sensor group
     private static void createGroup() {
         System.out.print("Enter Group Name: ");
         String name = scanner.nextLine().trim();
@@ -64,6 +67,7 @@ public class Main {
         System.out.println("Group created successfully.");
     }
 
+    // Add sensor or subgroup into a group (composite behavior)
     private static void addSensorToGroup() {
         System.out.print("Enter Target Group Name: ");
         String groupName = scanner.nextLine().trim();
@@ -77,13 +81,13 @@ public class Main {
         String id = scanner.nextLine().trim();
 
         if (allSensors.containsKey(id)) {
-            group.addComponent(allSensors.get(id));
+            group.addComponent(allSensors.get(id)); // Add sensor
             System.out.println("Sensor added to group.");
         } else if (allGroups.containsKey(id)) {
             if (id.equals(groupName)) {
                 System.out.println("Cannot add a group to itself.");
             } else {
-                group.addComponent(allGroups.get(id));
+                group.addComponent(allGroups.get(id)); // Add subgroup
                 System.out.println("Sub-group added.");
             }
         } else {
@@ -91,6 +95,7 @@ public class Main {
         }
     }
 
+    // Perform operations (status, update, collect data) on a group
     private static void operateGroup() {
         System.out.print("Enter Group Name to Operate On: ");
         String groupName = scanner.nextLine().trim();
@@ -113,8 +118,7 @@ public class Main {
                 case "1" -> group.status();
                 case "2" -> group.updateFirmware();
                 case "3" -> group.collectData();
-                case "0" -> { return; 
-                }
+                case "0" -> { return; }
                 default -> System.out.println("Invalid choice.");
             }
         }

@@ -1,3 +1,4 @@
+// Concrete Decorator - converts text to uppercase
 public class UppercaseDecorator extends ETLDecorator {
     public UppercaseDecorator(ETLComponent component) {
         super(component);

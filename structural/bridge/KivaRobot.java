@@ -1,3 +1,4 @@
+// Concrete implementation of Robot interface
 public class KivaRobot implements Robot {
     private boolean isCharging = false;
 

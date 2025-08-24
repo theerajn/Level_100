@@ -1,3 +1,4 @@
+// Concrete Decorator - trims whitespace
 public class TrimDecorator extends ETLDecorator {
     public TrimDecorator(ETLComponent component) {
         super(component);

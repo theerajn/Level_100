@@ -1,3 +1,4 @@
+// Concrete implementation of Robot interface
 public class FetchRobot implements Robot {
     @Override
     public void pick() {

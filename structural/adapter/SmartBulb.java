@@ -1,3 +1,4 @@
+// Adaptee: Original class with incompatible interface
 public class SmartBulb {
     public void enableLight() {
         System.out.println("Smart Bulb is turned ON.");

@@ -1,3 +1,4 @@
+// Proxy class to control access to RealDataAccess
 public class DataAccessProxy implements DataAccess {
     private RealDataAccess realDataAccess;
     private String role;
@@ -9,11 +10,13 @@ public class DataAccessProxy implements DataAccess {
 
     @Override
     public void viewData() {
-        realDataAccess.viewData(); // Everyone can view
+        // Everyone can view the data
+        realDataAccess.viewData();
     }
 
     @Override
     public void deleteData() {
+        // Only admin can delete the data
         if (role.equalsIgnoreCase("admin")) {
             realDataAccess.deleteData();
         } else {

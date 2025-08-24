@@ -1,3 +1,4 @@
+// Concrete Decorator - removes special characters
 public class SpecialCharRemovalDecorator extends ETLDecorator {
     public SpecialCharRemovalDecorator(ETLComponent component) {
         super(component);

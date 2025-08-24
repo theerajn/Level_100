@@ -1,3 +1,4 @@
+// Adapter: Wraps SmartPlug to implement SmartDevice interface
 public class SmartPlugAdapter implements SmartDevice {
     private SmartPlug plug;
     private boolean isOn = false;

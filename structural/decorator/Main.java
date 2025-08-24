@@ -11,8 +11,10 @@ public class Main {
         System.out.print("Enter your raw data for ETL processing: ");
         String inputData = scanner.nextLine();
 
+        // Base ETL component with raw data
         ETLComponent etl = new BasicETLComponent(inputData);
 
+        // Interactive menu for applying transformations dynamically
         while (true) {
             System.out.println("\nChoose a transformation to apply:");
             System.out.println("1. Trim whitespace");
@@ -27,6 +29,7 @@ public class Main {
 
             switch (choice) {
                 case "1":
+                    // Apply Trim if not already applied
                     if (appliedTransformations.add("trim")) {
                         etl = new TrimDecorator(etl);
                         applied = true;
@@ -35,6 +38,7 @@ public class Main {
                     }
                     break;
                 case "2":
+                    // Apply Special Character Removal if not already applied
                     if (appliedTransformations.add("special")) {
                         etl = new SpecialCharRemovalDecorator(etl);
                         applied = true;
@@ -43,6 +47,7 @@ public class Main {
                     }
                     break;
                 case "3":
+                    // Apply Uppercase if not already applied
                     if (appliedTransformations.add("upper")) {
                         etl = new UppercaseDecorator(etl);
                         applied = true;
@@ -51,6 +56,7 @@ public class Main {
                     }
                     break;
                 case "4":
+                    // Apply all transformations (only those not applied yet)
                     if (appliedTransformations.add("trim")) {
                         etl = new TrimDecorator(etl);
                         System.out.println("Trim applied.");
@@ -72,6 +78,7 @@ public class Main {
                     System.out.println("Invalid choice. Try again.");
             }
 
+            // Show intermediate result after applying transformation
             if (applied) {
                 System.out.println("Intermediate result: " + etl.process());
             }

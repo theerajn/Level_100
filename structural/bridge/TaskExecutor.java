@@ -1,3 +1,4 @@
+// Facade: Provides simplified methods to perform tasks on robots without directly interacting with Robot implementations
 public class TaskExecutor {
     private Robot robot;
 

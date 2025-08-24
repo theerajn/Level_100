@@ -1,3 +1,4 @@
+// Concrete implementation of Robot interface
 public class ABBRobot implements Robot {
     private boolean isCharging = false;
 

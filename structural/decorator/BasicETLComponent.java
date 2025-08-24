@@ -1,3 +1,4 @@
+// Concrete Component (base ETL data input)
 public class BasicETLComponent implements ETLComponent {
     private String data;
 
@@ -7,6 +8,7 @@ public class BasicETLComponent implements ETLComponent {
 
     @Override
     public String process() {
+        // Just returns raw input data without modifications
         return data;
     }
 }

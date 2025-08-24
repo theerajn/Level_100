@@ -1,11 +1,13 @@
 import java.util.Scanner;
 
+// Main class acts as client to demonstrate the use of Facade
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Welcome to the Travel Booking System");
 
+        // Input details from user
         System.out.print("Enter flight origin city: ");
         String from = scanner.nextLine();
 
@@ -27,6 +29,7 @@ public class Main {
         System.out.print("Enter travel insurance plan: ");
         String insurancePlan = scanner.nextLine();
 
+        // Client interacts only with the Facade, not individual subsystems
         TravelBookingFacade travelFacade = new TravelBookingFacade();
         travelFacade.bookCompleteTravel(from, to, hotelName, nights, carType, days, insurancePlan);
 

@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+// Composite node - can contain sensors or other groups
 public class SensorGroup implements SensorComponent {
     private String name;
     private List<SensorComponent> components = new ArrayList<>();
@@ -9,6 +10,7 @@ public class SensorGroup implements SensorComponent {
         this.name = name;
     }
 
+    // Add a component (leaf or composite)
     public void addComponent(SensorComponent component) {
         components.add(component);
     }

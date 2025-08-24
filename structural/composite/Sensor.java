@@ -1,7 +1,9 @@
+// Leaf node in the Composite pattern
 public class Sensor implements SensorComponent {
     private String id;
     private SensorType type;
 
+    // Different sensor types
     public enum SensorType {
         TEMPERATURE,
         HUMIDITY,

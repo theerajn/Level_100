@@ -1,3 +1,4 @@
+// Adapter: Wraps SmartBulb to make it compatible with SmartDevice interface
 public class SmartBulbAdapter implements SmartDevice {
     private SmartBulb bulb;
     private boolean isOn = false;

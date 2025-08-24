@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+// Client program demonstrating Proxy Design Pattern
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -7,6 +8,7 @@ public class Main {
         System.out.print("Enter your role (admin/user): ");
         String role = scanner.nextLine();
 
+        // User interacts with the proxy, not the real object
         DataAccess proxy = new DataAccessProxy(role);
 
         while (true) {
@@ -15,8 +17,8 @@ public class Main {
             System.out.println("2. Delete Data");
             System.out.println("3. Exit");
             System.out.print("Enter your choice: ");
-            int choice;
 
+            int choice;
             try {
                 choice = Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
