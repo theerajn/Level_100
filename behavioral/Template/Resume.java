@@ -1,4 +1,5 @@
-
+// Simple data class representing a Resume
+// Holds applicant details and resume text
 public class Resume {
     private final String applicantName;
     private final int yearsOfExperience;

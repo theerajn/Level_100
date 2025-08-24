@@ -1,3 +1,4 @@
+// Concrete Subject: Stores score and notifies observers when updated
 public class SportsScore extends ScoreSubject {
     private String teamName;
     private int score;

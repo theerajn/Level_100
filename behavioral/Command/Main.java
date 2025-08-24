@@ -1,6 +1,6 @@
-
 import java.util.Scanner;
 
+// Client: Provides interface for user to choose and execute commands
 public class Main {
     public static void main(String[] args) {
         JobInvoker invoker = new JobInvoker();
@@ -22,16 +22,16 @@ public class Main {
 
             switch (choice) {
                 case "1":
-                    invoker.setCommand(new PrintJob());
+                    invoker.setCommand(new PrintJob()); // set PrintJob
                     break;
                 case "2":
-                    invoker.setCommand(new EmailJob());
+                    invoker.setCommand(new EmailJob()); // set EmailJob
                     break;
                 case "3":
-                    invoker.setCommand(new BackupJob());
+                    invoker.setCommand(new BackupJob()); // set BackupJob
                     break;
                 case "4":
-                    invoker.setCommand(new ShutdownJob());
+                    invoker.setCommand(new ShutdownJob()); // set ShutdownJob
                     break;
                 case "5":
                     running = false;
@@ -42,7 +42,7 @@ public class Main {
                     continue;
             }
 
-            invoker.runCommand();
+            invoker.runCommand(); // execute the selected job
         }
 
         scanner.close();

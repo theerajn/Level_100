@@ -1,3 +1,4 @@
+// Represents an Email with subject, body, and sender details.
 public class Email {
     private String subject;
     private String body;

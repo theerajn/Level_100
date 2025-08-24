@@ -3,7 +3,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
+// Concrete implementation of ResumeScreeningTemplate for UX Designer role
+// Defines keywords, scoring system, and threshold specific to UX Designers
 public class UXDesignerScreening extends ResumeScreeningTemplate {
+    // List of relevant keywords for UX Designer resumes
     private static final List<String> KEYWORDS = Arrays.asList(
             "figma", "sketch", "adobe xd", "wireframe", "prototyping",
             "usability", "ux research", "accessibility", "interaction design",
@@ -13,6 +16,7 @@ public class UXDesignerScreening extends ResumeScreeningTemplate {
     @Override
     protected String getRoleName() { return "UX Designer"; }
 
+    // Parse resume text for presence of predefined UX keywords
     @Override
     protected List<String> parseResumeForSkills() {
         List<String> matches = new ArrayList<>();

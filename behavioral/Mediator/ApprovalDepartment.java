@@ -1,3 +1,4 @@
+// Concrete Department: Handles final loan approval or rejection
 public class ApprovalDepartment extends Department {
 
     public ApprovalDepartment(LoanMediator mediator) {
@@ -10,6 +11,7 @@ public class ApprovalDepartment extends Department {
         System.out.println("Loan Approved!");
     }
 
+    // Handles rejection logic
     public void reject(String reason) {
         System.out.println("Loan Rejected: " + reason);
     }

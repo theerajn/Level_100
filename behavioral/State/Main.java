@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+// Client: provides menu-driven interaction with the ATM
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -8,6 +9,8 @@ public class Main {
         while (true) {
             System.out.println("\n--- ATM Machine ---");
             String[] options = atm.getCurrentState().getAvailableOptions();
+
+            // Show available options dynamically based on state
             for (int i = 0; i < options.length; i++) {
                 System.out.println((i + 1) + ". " + options[i]);
             }

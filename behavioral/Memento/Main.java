@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+// Client: Provides a menu for interacting with the database and caretaker
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -26,6 +27,7 @@ public class Main {
                         break;
                     }
 
+                    // Save current state before making changes
                     caretaker.saveMemento(db.saveStateToMemento());
                     db.addRecord(record);
                     break;
@@ -35,6 +37,7 @@ public class Main {
                     break;
 
                 case "3":
+                    // Get last saved state and restore if available
                     DatabaseMemento lastState = caretaker.getLastMemento();
                     if (lastState != null) {
                         db.restoreFromMemento(lastState);

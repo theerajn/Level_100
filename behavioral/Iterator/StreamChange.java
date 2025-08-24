@@ -1,3 +1,4 @@
+// Represents a single change in the Snowflake stream (table name, operation, data)
 public class StreamChange {
     private String tableName;
     private String operation; // INSERT, UPDATE, DELETE

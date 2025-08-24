@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+// Collection class: stores stream changes and provides an iterator
 public class StreamChangeCollection {
     private List<StreamChange> changes = new ArrayList<>();
 

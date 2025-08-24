@@ -1,3 +1,4 @@
+// Concrete Command: Represents a backup job
 public class BackupJob implements Command {
     @Override
     public void execute() {

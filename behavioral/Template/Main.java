@@ -1,11 +1,14 @@
 import java.util.Scanner;
 
+// Main driver program to run the Resume Screening system
+// Provides interactive menu for different roles and validates inputs
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("=== AI-Powered Resume Screening (Template Method) ===");
 
         while (true) {
+            // Menu-driven system for role selection
             System.out.println("\nMenu:");
             System.out.println("1. Screen a resume for Java Developer");
             System.out.println("2. Screen a resume for UX Designer");
@@ -20,6 +23,7 @@ public class Main {
             }
 
             ResumeScreeningTemplate pipeline;
+            // Select screening pipeline based on role
             if ("1".equals(choice)) pipeline = new JavaDeveloperScreening();
             else if ("2".equals(choice)) pipeline = new UXDesignerScreening();
             else {
@@ -27,6 +31,7 @@ public class Main {
                 continue;
             }
 
+            // Input validation for applicant name
             String name;
             while (true) {
                 System.out.print("Enter applicant full name: ");
@@ -35,6 +40,7 @@ public class Main {
                 else break;
             }
 
+            // Input validation for years of experience
             int years;
             while (true) {
                 System.out.print("Enter years of experience: ");
@@ -51,6 +57,7 @@ public class Main {
                 }
             }
 
+            // Collect resume text until user types END
             System.out.println("Paste resume text (type a single line with only END to finish):");
             StringBuilder sb = new StringBuilder();
             while (true) {
@@ -64,10 +71,12 @@ public class Main {
                 continue;
             }
 
+            // Build resume object and process using selected pipeline
             Resume resume = new Resume(name, years, resumeText);
             ScreeningResult result = pipeline.processResume(resume);
             result.printReport();
 
+            // Option to process more resumes
             System.out.print("Process another resume? (y/n): ");
             String again = sc.nextLine().trim();
             if (!again.equalsIgnoreCase("y")) {

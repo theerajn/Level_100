@@ -1,3 +1,4 @@
+// Concrete Visitor that generates medical history report
 public class MedicalHistoryReport implements PatientVisitor {
     @Override
     public void visit(Inpatient inpatient) {

@@ -1,13 +1,16 @@
+// Concrete Mediator: Coordinates all department interactions
 public class LoanMediatorImpl implements LoanMediator {
     private CreditDepartment creditDept;
     private DocumentDepartment docDept;
     private FraudDepartment fraudDept;
     private ApprovalDepartment approvalDept;
 
+    // Flags to track department results
     private boolean creditOk = false;
     private boolean docsOk = false;
     private boolean fraudOk = false;
 
+    // Injects department dependencies
     public void setDepartments(CreditDepartment creditDept, DocumentDepartment docDept,
                                 FraudDepartment fraudDept, ApprovalDepartment approvalDept) {
         this.creditDept = creditDept;
@@ -19,14 +22,19 @@ public class LoanMediatorImpl implements LoanMediator {
     @Override
     public void requestLoan(String applicantName, double amount) {
         System.out.println("\n--- Loan Request Started ---");
+
+        // Notify all departments in sequence
         creditDept.process(applicantName, amount);
         docDept.process(applicantName, amount);
         fraudDept.process(applicantName, amount);
 
+        // If all checks are ok → approve, else → reject
         if (creditOk && docsOk && fraudOk) {
             approvalDept.process(applicantName, amount);
         } else {
-            String reason = (!creditOk ? "Low credit score" : !docsOk ? "Invalid documents" : "Fraud detected");
+            String reason = (!creditOk ? "Low credit score" 
+                          : !docsOk ? "Invalid documents" 
+                          : "Fraud detected");
             approvalDept.reject(reason);
         }
         System.out.println("--- Loan Request Completed ---\n");
@@ -34,6 +42,7 @@ public class LoanMediatorImpl implements LoanMediator {
 
     @Override
     public void notifyDepartment(String department, boolean status) {
+        // Updates flags based on department responses
         switch (department) {
             case "Credit" -> creditOk = status;
             case "Document" -> docsOk = status;

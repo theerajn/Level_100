@@ -1,16 +1,18 @@
-
+// Context class: Maintains a reference to an irrigation strategy
 public class IrrigationContext {
     private IrrigationStrategy strategy;
 
+    // Set irrigation strategy dynamically
     public void setStrategy(IrrigationStrategy strategy) {
         this.strategy = strategy;
     }
 
-    public void executeIrrigation(double areaSize, double waterLevel) {
-        if (strategy == null) {
-            System.out.println("No irrigation strategy selected.");
+    // Execute selected strategy
+    public void executeStrategy(int fieldArea, int availableWater) {
+        if (strategy != null) {
+            strategy.irrigate(fieldArea, availableWater);
         } else {
-            strategy.irrigate(areaSize, waterLevel);
+            System.out.println("No irrigation strategy selected.");
         }
     }
 }

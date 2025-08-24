@@ -1,3 +1,4 @@
+// Concrete Command: Represents a shutdown job
 public class ShutdownJob implements Command {
     @Override
     public void execute() {

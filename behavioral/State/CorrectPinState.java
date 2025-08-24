@@ -1,3 +1,4 @@
+// Concrete State: Correct PIN entered
 public class CorrectPinState implements ATMState {
     ATMMachine atmMachine;
 

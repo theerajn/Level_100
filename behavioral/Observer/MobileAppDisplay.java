@@ -1,3 +1,4 @@
+// Concrete Observer: Displays score updates on a mobile app
 public class MobileAppDisplay implements Observer {
     private String displayName;
 

@@ -1,8 +1,10 @@
 import java.util.Scanner;
 
+// Utility class to handle user input validation
 public class UserInputHelper {
     private static final Scanner scanner = new Scanner(System.in);
 
+    // Gets an integer within a valid range
     public static int getIntInput(String prompt, int min, int max) {
         int value;
         while (true) {
@@ -17,6 +19,7 @@ public class UserInputHelper {
         }
     }
 
+    // Gets a non-empty string input
     public static String getNonEmptyInput(String prompt) {
         String value;
         do {

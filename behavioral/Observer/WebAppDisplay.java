@@ -1,3 +1,4 @@
+// Concrete Observer: Displays score updates on a web app
 public class WebAppDisplay implements Observer {
     private String displayName;
 

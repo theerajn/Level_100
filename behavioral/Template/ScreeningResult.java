@@ -1,5 +1,7 @@
 import java.util.List;
 
+// Class representing the result of a resume screening
+// Encapsulates score, shortlist decision, and matched skills
 public class ScreeningResult {
     private final String applicantName;
     private final String role;
@@ -25,6 +27,7 @@ public class ScreeningResult {
     public List<String> getMatchedSkills() { return matchedSkills; }
     public String getNotes() { return notes; }
 
+    // Prints a formatted screening report
     public void printReport() {
         System.out.println("\n===== Screening Report =====");
         System.out.println("Applicant: " + applicantName);

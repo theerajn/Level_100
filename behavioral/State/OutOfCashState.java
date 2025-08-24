@@ -1,3 +1,4 @@
+// Concrete State: ATM has no cash left
 public class OutOfCashState implements ATMState {
     ATMMachine atmMachine;
 

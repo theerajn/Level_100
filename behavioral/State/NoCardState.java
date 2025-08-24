@@ -1,3 +1,4 @@
+// Concrete State: No card inserted
 public class NoCardState implements ATMState {
     ATMMachine atmMachine;
 

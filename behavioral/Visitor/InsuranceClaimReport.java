@@ -1,3 +1,4 @@
+// Concrete Visitor that determines insurance claim eligibility
 public class InsuranceClaimReport implements PatientVisitor {
     @Override
     public void visit(Inpatient inpatient) {

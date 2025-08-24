@@ -1,5 +1,7 @@
+// Concrete filter that blocks emails containing suspicious spam keywords.
 public class KeywordFilter extends Filter {
 
+    // Common spam-related keywords
     private static final String[] SPAM_KEYWORDS = {
         "virus", "malware", "trojan", "spyware", "hacked",
         "free money", "win a prize", "lottery", "jackpot", "winner", "free",
@@ -20,13 +22,15 @@ public class KeywordFilter extends Filter {
         String subject = email.getSubject().toLowerCase();
         String body = email.getBody().toLowerCase();
 
+        // Check if subject/body contains any spam keyword
         for (String keyword : SPAM_KEYWORDS) {
             if (subject.contains(keyword) || body.contains(keyword)) {
                 System.out.println("Email blocked: Suspicious keyword found (" + keyword + ")");
-                return; // Stop processing if spam keyword is found
+                return; // Stop chain if spam detected
             }
         }
 
+        // Pass to next filter if no keyword detected
         if (next != null) {
             next.handle(email);
         }

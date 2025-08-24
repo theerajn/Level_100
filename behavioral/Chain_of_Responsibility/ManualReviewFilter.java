@@ -1,3 +1,5 @@
+// Final filter in the chain. 
+// If no automated filter blocks the email, it is sent for manual review.
 public class ManualReviewFilter extends Filter {
     @Override
     public void handle(Email email) {

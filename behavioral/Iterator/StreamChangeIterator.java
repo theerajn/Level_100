@@ -1,5 +1,6 @@
 import java.util.List;
 
+// Concrete Iterator: iterates over stream changes in sequence
 public class StreamChangeIterator {
     private List<StreamChange> changes;
     private int position = 0;

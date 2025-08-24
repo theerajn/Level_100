@@ -1,11 +1,12 @@
 import java.util.Scanner;
 
+// Client class to simulate live sports score updates
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         SportsScore sportsScore = new SportsScore();
 
-        // Add some observers
+        // Adding observers (Mobile App & Web App)
         sportsScore.addObserver(new MobileAppDisplay("Fan1"));
         sportsScore.addObserver(new WebAppDisplay("LiveScoreSite"));
 
@@ -31,7 +32,7 @@ public class Main {
 
                 try {
                     int score = Integer.parseInt(scoreInput);
-                    sportsScore.setScore(teamName, score);
+                    sportsScore.setScore(teamName, score); // update & notify observers
                 } catch (NumberFormatException e) {
                     System.out.println("Invalid score. Please enter an integer.");
                 }

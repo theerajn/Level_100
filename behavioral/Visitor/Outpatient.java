@@ -1,3 +1,4 @@
+// Concrete Patient (Element) representing an outpatient
 public class Outpatient implements Patient {
     private String name;
     private int age;
@@ -18,6 +19,7 @@ public class Outpatient implements Patient {
 
     @Override
     public void accept(PatientVisitor visitor) {
+        // Delegates operation to Visitor
         visitor.visit(this);
     }
 }

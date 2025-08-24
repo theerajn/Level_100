@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+// Client code: simulates Snowflake stream changes and uses iterator to traverse them
 public class Main {
     private static final Scanner scanner = new Scanner(System.in);
     private static final StreamChangeCollection stream = new StreamChangeCollection();
@@ -30,6 +31,7 @@ public class Main {
         }
     }
 
+    // Prints the menu options
     private static void printMenu() {
         System.out.println("\n------ MENU ------");
         System.out.println("1. Simulate stream change");
@@ -38,6 +40,7 @@ public class Main {
         System.out.println("4. Exit");
     }
 
+    // Simulates adding stream changes with validation
     private static void simulateStreamData() {
         String table = UserInputHelper.getNonEmptyInput("Enter table name: ");
         String operation;
@@ -51,6 +54,7 @@ public class Main {
         System.out.println("Stream change added.");
     }
 
+    // Uses iterator to traverse through the list of stream changes
     private static void iterateOverChanges() {
         if (stream.isEmpty()) {
             System.out.println("No stream changes to iterate.");

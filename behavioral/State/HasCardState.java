@@ -1,3 +1,4 @@
+// Concrete State: Card inserted but no PIN entered
 public class HasCardState implements ATMState {
     ATMMachine atmMachine;
 

@@ -1,9 +1,11 @@
 import java.util.Scanner;
 
+// Client class: Entry point of the loan processing system
 public class Main {
     public static void main(String[] args) {
         LoanMediatorImpl mediator = new LoanMediatorImpl();
 
+        // Creating departments and injecting into mediator
         CreditDepartment credit = new CreditDepartment(mediator);
         DocumentDepartment document = new DocumentDepartment(mediator);
         FraudDepartment fraud = new FraudDepartment(mediator);
@@ -17,6 +19,7 @@ public class Main {
             String name = sc.nextLine().trim();
             if (name.equalsIgnoreCase("exit")) break;
 
+            // Validate name (non-empty, alphabets only)
             if (name.isEmpty() || !name.matches("[a-zA-Z ]+")) {
                 System.out.println("Invalid name. Only alphabets allowed.\n");
                 continue;
@@ -24,12 +27,15 @@ public class Main {
 
             System.out.println("Enter loan amount: ");
             String amountStr = sc.nextLine().trim();
+            
+            // Validate numeric amount
             if (!amountStr.matches("\\d+(\\.\\d+)?")) {
                 System.out.println("Invalid amount. Enter a numeric value.\n");
                 continue;
             }
             double amount = Double.parseDouble(amountStr);
 
+            // Request loan through mediator
             mediator.requestLoan(name, amount);
         }
         sc.close();
