@@ -1,3 +1,4 @@
+// Client code: Uses factory to create Reader, Writer, and Formatter without depending on concrete classes
 import java.util.Scanner;
 
 public class Main {
@@ -5,6 +6,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         DocumentFactory factory = null;
 
+        // Get document type from user
         while (factory == null) {
             System.out.print("Choose document type (pdf/word): ");
             String docType = scanner.nextLine().trim();
@@ -17,6 +19,7 @@ public class Main {
             }
         }
 
+        // Get input, output filenames and content
         String inputFile = "";
         while (inputFile.trim().isEmpty()) {
             System.out.print("Enter input filename: ");
@@ -44,10 +47,12 @@ public class Main {
             }
         }
 
+        // Create products using abstract factory
         DocumentReader reader = factory.createReader();
         DocumentWriter writer = factory.createWriter();
         Formatter formatter = factory.createFormatter();
 
+        // Use the products
         reader.read(inputFile);
         formatter.format(content);
         writer.write(outputFile);

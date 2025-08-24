@@ -1,3 +1,4 @@
+// Factory Provider: returns appropriate concrete factory based on document type
 public class DocumentFactoryProvider {
     public static DocumentFactory getFactory(String type) {
         if (type == null || type.trim().isEmpty()) {

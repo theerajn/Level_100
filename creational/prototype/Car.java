@@ -1,3 +1,4 @@
+// Concrete class implementing Prototype pattern
 public class Car implements CarPrototype {
     private String model;
     private String engine;
@@ -13,6 +14,7 @@ public class Car implements CarPrototype {
         this.gps = gps;
     }
 
+    // Clone method to duplicate Car objects
     public Car cloneCar() {
         try {
             return (Car) super.clone();

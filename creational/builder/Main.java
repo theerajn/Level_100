@@ -1,10 +1,12 @@
 import java.util.Scanner;
 
+// Client class demonstrating Builder Pattern usage
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         EmailBuilder builder = new EmailBuilder();
 
+        // Required fields using InputHelper
         String to = InputHelper.getRequiredInput(scanner, "Enter To (required): ");
         builder.setTo(to);
 
@@ -14,6 +16,7 @@ public class Main {
         String body = InputHelper.getRequiredInput(scanner, "Enter Body (required): ");
         builder.setBody(body);
 
+        // Optional fields
         System.out.print("Enter CC (optional, press Enter to skip): ");
         String cc = scanner.nextLine();
         if (!cc.trim().isEmpty()) builder.setCc(cc);
@@ -27,6 +30,7 @@ public class Main {
         if (!attachment.trim().isEmpty()) builder.setAttachment(attachment);
 
         try {
+            // Build the final Email object
             Email email = builder.build();
             System.out.println("\n" + email);
         } catch (IllegalStateException e) {

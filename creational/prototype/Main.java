@@ -1,9 +1,11 @@
 import java.util.Scanner;
 
+// Client code to demonstrate Prototype Pattern
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        // Predefined car models
         Car sportsModel = new Car("Sports", "V8", "Red", true, true);
         Car ecoModel = new Car("Eco", "Hybrid", "Green", false, true);
 
@@ -13,6 +15,7 @@ public class Main {
 
         Car baseCar = null;
 
+        // Let user choose a base model
         while (baseCar == null) {
             System.out.print("Choose a model to clone (1 or 2): ");
             String input = scanner.nextLine().trim();
@@ -26,8 +29,10 @@ public class Main {
             }
         }
 
+        // Clone the chosen model
         Car clonedCar = baseCar.cloneCar();
 
+        // Allow customization of cloned car
         System.out.print("Enter new color for the cloned car (current: " + clonedCar.getColor() + "): ");
         String newColor = scanner.nextLine().trim();
         if (!newColor.isEmpty()) {
@@ -51,6 +56,7 @@ public class Main {
             }
         }
 
+        // Show results
         System.out.println("\nOriginal Model: " + baseCar);
         System.out.println("Cloned & Customized Car: " + clonedCar);
 

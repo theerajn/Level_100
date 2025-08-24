@@ -1,4 +1,4 @@
-
+// Product class representing the final Email object
 public class Email {
     private final String to;
     private final String subject;
@@ -7,6 +7,7 @@ public class Email {
     private final String bcc;
     private final String attachment;
 
+    // Constructor is private to enforce creation via EmailBuilder
     public Email(EmailBuilder builder) {
         this.to = builder.to;
         this.subject = builder.subject;

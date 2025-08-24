@@ -1,5 +1,4 @@
-
-
+// Concrete factory for Word documents
 public class WordDocumentFactory implements DocumentFactory {
     public DocumentReader createReader() {
         return new WordReader();

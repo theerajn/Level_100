@@ -1,5 +1,4 @@
-
-
+// Concrete factory for PDF documents
 public class PDFDocumentFactory implements DocumentFactory {
     public DocumentReader createReader() {
         return new PDFReader();

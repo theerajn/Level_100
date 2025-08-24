@@ -1,4 +1,4 @@
-
+// Builder class to construct Email objects step by step
 public class EmailBuilder {
     String to;
     String subject;
@@ -9,7 +9,7 @@ public class EmailBuilder {
 
     public EmailBuilder setTo(String to) {
         this.to = to;
-        return this;
+        return this; // Enable method chaining
     }
 
     public EmailBuilder setSubject(String subject) {
@@ -37,6 +37,7 @@ public class EmailBuilder {
         return this;
     }
 
+    // Build method validates required fields and returns the Email object
     public Email build() {
         if (to == null || to.trim().isEmpty() ||
             subject == null || subject.trim().isEmpty() ||
