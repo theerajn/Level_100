@@ -46,7 +46,7 @@ public class WorkflowEngine {
         Expression rule = rules.get(key);
 
         if (rule == null) {
-            System.out.println("⚠ No rule found for action: " + action);
+            System.out.println("No rule found for action: " + action);
             return false;
         }
 
@@ -54,9 +54,9 @@ public class WorkflowEngine {
         boolean ok = rule.interpret(ctx);
 
         if (ok) {
-            System.out.println("✅ Workflow executed: " + role + " -> " + action);
+            System.out.println("Workflow executed: " + role + " -> " + action);
         } else {
-            System.out.println("❌ Not allowed: " + role + " cannot perform " + action);
+            System.out.println("Not allowed: " + role + " cannot perform " + action);
         }
         return ok;
     }
