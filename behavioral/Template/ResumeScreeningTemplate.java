@@ -52,7 +52,7 @@ public abstract class ResumeScreeningTemplate {
 
     // Store or log results (hook method)
     protected void storeResult(ScreeningResult result) {
-        System.out.printf("Processed %s for %s — Score: %d — Shortlisted: %s%n",
+        System.out.printf("Processed %s for %s  Score: %d  Shortlisted: %s%n",
                 result.getApplicantName(), result.getRole(), result.getScore(),
                 result.isShortlisted() ? "YES" : "NO");
     }

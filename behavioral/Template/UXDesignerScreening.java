@@ -20,7 +20,7 @@ public class UXDesignerScreening extends ResumeScreeningTemplate {
     @Override
     protected List<String> parseResumeForSkills() {
         List<String> matches = new ArrayList<>();
-        String text = resume.getResumeText().toLowerCase(Locale.ROOT);
+        String text = resume.getResumeText().toLowerCase();
         for (String kw : KEYWORDS) {
             if (text.contains(kw)) {
                 matches.add(kw);

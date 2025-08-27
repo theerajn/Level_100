@@ -24,3 +24,9 @@ Adds new functionality dynamically without altering existing classes. Avoids an 
 - Rigid object structure
 - Difficult to combine multiple behaviors
 - Complex inheritance hierarchies
+
+etl = new UppercaseDecorator(
+                        new SpecialCharRemovalDecorator(
+                            new TrimDecorator(
+                                new BasicETLComponent(inputData))));
+
