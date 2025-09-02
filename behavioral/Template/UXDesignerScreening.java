@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 
 // Concrete implementation of ResumeScreeningTemplate for UX Designer role
 // Defines keywords, scoring system, and threshold specific to UX Designers

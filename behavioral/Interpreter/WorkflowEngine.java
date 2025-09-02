@@ -10,7 +10,6 @@ public class WorkflowEngine {
         // Terminals
         Expression admin   = new RoleExpression("ADMIN");
         Expression manager = new RoleExpression("MANAGER");
-        Expression user    = new RoleExpression("USER");
 
         Expression approve  = new ActionExpression("APPROVE");
         Expression reject   = new ActionExpression("REJECT");

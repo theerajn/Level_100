@@ -18,7 +18,7 @@ public class KeywordFilter extends Filter {
     };
 
     @Override
-    public void handle(Email email) {
+    public void handle(Email1 email) {
         String subject = email.getSubject().toLowerCase();
         String body = email.getBody().toLowerCase();
 

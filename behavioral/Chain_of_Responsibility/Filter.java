@@ -9,5 +9,5 @@ public abstract class Filter {
     }
 
     // Handles the email processing
-    public abstract void handle(Email email);
+    public abstract void handle(Email1 email);
 }
