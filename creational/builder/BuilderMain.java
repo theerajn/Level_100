@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 // Client class demonstrating Builder Pattern usage
-public class Main {
+public class BuilderMain {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         EmailBuilder builder = new EmailBuilder();

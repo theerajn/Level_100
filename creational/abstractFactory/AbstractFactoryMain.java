@@ -1,7 +1,7 @@
 // Client code: Uses factory to create Reader, Writer, and Formatter without depending on concrete classes
 import java.util.Scanner;
 
-public class Main {
+public class AbstractFactoryMain {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         DocumentFactory factory = null;
@@ -52,11 +52,16 @@ public class Main {
         DocumentWriter writer = factory.createWriter();
         Formatter formatter = factory.createFormatter();
 
-        // Use the products
-        reader.read(inputFile);
-        formatter.format(content);
-        writer.write(outputFile);
-
-        scanner.close();
+        try {
+            // Use the products safely
+            reader.read(inputFile);
+            formatter.format(content);
+            writer.write(outputFile);
+            System.out.println("Document processed successfully!");
+        } catch (Exception e) {
+            System.err.println("An error occurred while processing the document: " + e.getMessage());
+        } finally {
+            scanner.close();
+        }
     }
 }
