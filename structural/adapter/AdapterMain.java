@@ -1,7 +1,7 @@
 // Client code: Controls smart devices via a uniform interface (SmartDevice) without worrying about their specific implementations
 import java.util.*;
 
-public class Main {
+public class AdapterMain {
     private static Map<Integer, SmartDevice> devices = new HashMap<>();
     private static Scanner scanner = new Scanner(System.in);
 
@@ -64,9 +64,14 @@ public class Main {
 
     // Displays current status of all devices
     private static void showDeviceStatus() {
-        System.out.println("\nDevice Status:");
-        for (SmartDevice device : devices.values()) {
-            System.out.println(device.getDeviceName() + " is currently " + (device.isOn() ? "ON" : "OFF"));
+        try {
+            System.out.println("\nDevice Status:");
+            for (SmartDevice device : devices.values()) {
+                System.out.println(device.getDeviceName() + " is currently " + (device.isOn() ? "ON" : "OFF"));
+            }
+        } catch (Exception e) {
+            System.out.println("Error fetching device status: " + e.getMessage());
         }
     }
+
 }
